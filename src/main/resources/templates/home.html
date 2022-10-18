@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="icon" href="assert/favicon.ico">
+    <title>Home</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+
+    <div>
+        <a href="/perfil" type="button" class="btn btn-outline-light">
+            <img src="/assert/id-card.png" alt="home" style="height: 3rem">
+        </a>
+        <div class="text-center">
+            <div class="mt-2 mb-3" >
+                <img src="/assert/finz.png" width="60%" height="auto" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+
+        <div class="d-flex gap-5 justify-content-center">
+            <div class="card" style="width: 16rem;">
+                <img src="/assert/empresas.png" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <h5 class="card-title">EMPRESAS</h5>
+                    <p class="card-text"></p>
+                    <a href="/empresas" class="btn btn-primary">Ingresar</a>
+                </div>
+            </div>
+            <div class="card" style="width: 16rem;">
+                <img src="/assert/empleados.png" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <h5 class="card-title">EMPLEADOS</h5>
+                    <p class="card-text"></p>
+                    <a href="/empleados" class="btn btn-primary">Ingresar</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 16rem;">
+                <img src="/assert/assets.png" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <h5 class="card-title">TRANSACCIONES</h5>
+                    <p class="card-text"></p>
+                    <a href="/movimientos" class="btn btn-primary">Ingresar</a>
+                </div>
+            </div>
+        </div>
+
+    <div class="mt-4 d-flex gap-5 justify-content-center">
+
+        <a th:href="@{/}">
+            Cerrar Sesión
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>

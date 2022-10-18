@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="icon" href="assert/favicon.ico">
+  <title>Perfil</title>
+</head>
+<body>
+
+<!--    <div class="m-3">-->
+<!--      <a href="/home" type="button" class="btn btn-outline-light">-->
+<!--        <img src="/assert/home.png" alt="home" style="height: 3rem">-->
+<!--      </a>-->
+<!--    </div>-->
+
+    <div class="d-flex gap-5 justify-content-center">
+      <h1 class="display-2"><svg xmlns="http://www.w3.org/2000/svg" width="4.5rem" height="4.5rem" fill="currentColor" class="bi bi-person-lines-fill" viewBox="1 1 17 17">
+        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+        </svg>PERFIL</h1>
+    </div>
+
+    <div>
+      <img src="/assert/linea.png" max-width="100%" width="95%" height="6rem">
+    </div>
+
+
+  <div class="py-2 my-3 text-center">
+  </div>
+
+  <div class="d-flex gap-8 justify-content-center">
+    <div class="card" style="width: 50rem;">
+      <!--Incluir formulario para agregar información -->
+      <form th:method="patch" th:action="@{/perfil/frontPatch/{id}(id=${perfil.id})}" th:object="${perfil}">
+        <div class="container-fluid row mb-2">
+
+          <h1></h1>
+
+          <div class="container-fluid row mb-2">
+            <div class="row mb-3">
+              <label for="imagen" class="col-4 col-form-label">Imagen :</label>
+              <div class="col-8">
+                <input type="text" th:field="*{imagen}" th:value="*{imagen}" th:text="${imagen}" class="form-control" id="imagen" name="" value="" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="telefono" class="col-4 col-form-label">Telefono :</label>
+            <div class="col-8">
+              <input  type="text"  th:field="*{telefono}" th:value="*{telefono}" th:text="${telefono}"  class="form-control" id="telefono" name="" value="" required>
+            </div>
+          </div>
+
+          <div>
+            <button href="/home" type="submit" class="btn btn-outline-info mt-4 mb-4" >Guardar</button>
+            <a href="/home" type="button" class="btn btn-outline-secondary mt-4 mb-4" >Cerrar</a>
+          </div>
+        </div>
+      </form>
+
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </div>
+</body>
+</html>

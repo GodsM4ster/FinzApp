@@ -1,0 +1,75 @@
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="icon" href="assert/favicon.ico">
+    <title>Agregar Empleado</title>
+</head>
+<body>
+<div class ="py-2 my-3  text-center">
+    <h1>Agregar Empleado</h1>
+    <br>
+    <div>
+        <img src="/assert/linea.png" max-width="100%" width="95%" height="6rem">
+    </div>
+</div>
+<br>
+<div class="d-flex gap-8 justify-content-center">
+<div class="card"  >
+    <div class="container-fluid row mb-2">
+
+<!--Incluir formulario para agregar información -->
+<div class="container-fluid row mb-2">
+    <h1 class="card-title"></h1>
+    <form  th:action="@{/empleado}" th:method="post" th:object="${formNewEmpleado}">
+        <div class="px-5">
+        <div class="row mb-3 ">
+            <label for="cedula" class="col-4 col-form-label">Cédula :</label>
+            <div class="col-8">
+                <input th:field="*{numDocumento}" type="number" class="form-control" id="cedula" name="" value="" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="nombre" class="col-4 col-form-label">Nombre:</label>
+            <div class="col-8">
+                <input th:field="*{nombre}" type="text" class="form-control" id="nombre" name="" value="" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="correo" class="col-4 col-form-label">Correo:</label>
+            <div class="col-8">
+                <input th:field="*{correo}" type="email" class="form-control" id="correo" name="" value="" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-4 col-form-label">Rol:</label>
+            <div class="col-8">
+                <select th:field="*{rol}" class="form-select" aria-label="Default select example" required>
+                    <option value="" selected >Seleccione Aquí...</option>
+                    <option value="1" th:value="ADMIN" th:text="ADMIN"></option>
+                    <option value="2" th:value="OPERARIO" th:text="OPERARIO"></option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-10">
+            <label class="col-4 col-form-label justify-center">ID Empresa:</label>
+            <div class="col-8">
+                <select th:field="*{empresa}" class="form-select" aria-label="Default select example" required>
+                    <option value="" selected>Seleccione Aquí...</option>
+                    <option th:each="empresa:${empresas}" th:value="${empresa.nit}" th:text="${empresa.nit}"></option>
+                </select>
+            </div>
+        </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-info" >Guardar</button>
+        <a href="/empleados" type="button" class="btn btn-outline-secondary mt-4 mb-4" >Cerrar</a>
+    </form>
+</div>
+    </div>
+</div>
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</html>

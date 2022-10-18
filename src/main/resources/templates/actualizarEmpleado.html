@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="icon" href="assert/favicon.ico">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Actualizar Empleado</title>
+</head>
+<body>
+    <div class="py-2 my-3 text-center">
+        <h1> Editar Empleado</h1>
+        <div>
+            <img src="/assert/linea.png" max-width="100%" width="95%" height="6rem">
+        </div>
+    </div>
+
+    <div class="d-flex gap-8 justify-content-center">
+        <div class="card" style="widht:60rem;">
+            <div class="container-fluid row mb-2">
+                <h1 class="card-title"></h1>
+
+                <form th:method="patch" th:action="@{/empleado/frontPatch/{id}(id=${formEditEmpleado.numDocumento})}" th:object="${formEditEmpleado}">
+
+                    <div class="row mb-3">
+                        <label for="nombre" class="col-4 col-form-label">Nombre:</label>
+                        <div class="col-8">
+                            <input th:field="*{nombre}" th:value="*{nombre}" th:text="${nombre}" type="text" class="form-control" id="nombre" name="" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="correo" class="col-4 col-form-label">Correo:</label>
+                        <div class="col-8">
+                            <input th:field="*{correo}" th:value="*{correo}" th:text="${correo}" type="email" class="form-control" id="correo" name="" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-4 col-form-label">Rol:</label>
+                        <div class="col-8">
+                            <select th:field="*{rol}" class="form-select" aria-label="Default select example" required>
+                                <option value="" selected >Seleccione Aquí...</option>
+                                <option value="1" th:value="ADMIN" th:text="ADMIN"></option>
+                                <option value="2" th:value="OPERARIO" th:text="OPERARIO"></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-info" >Guardar</button>
+                    <a href="/empleados" type="button" class="btn btn-outline-secondary mt-4 mb-4" >Cerrar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
